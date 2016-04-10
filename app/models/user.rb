@@ -1,3 +1,4 @@
+# Users model created by devise
 class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

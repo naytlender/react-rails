@@ -16,11 +16,19 @@ module V1
       end
     end
 
+    # DELETE /v1/loguot
+    def destroy
+      @user = current_user
+
+      sign_out :user, @user
+      render json: { success: 'user signed out' }
+    end
+
     private
 
     def invalid_login_attempt
       warden.custom_failure!
-      render json: { error: t('sessions_controller.invalid_login_attempt') },
+      render json: { error: 'invalid login attempt' },
              status: :unprocessable_entity
     end
   end

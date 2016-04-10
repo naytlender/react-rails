@@ -1,3 +1,4 @@
+# Main controller class
 class ApplicationController < ActionController::API
   include AbstractController::Translation
 
@@ -35,11 +36,11 @@ class ApplicationController < ActionController::API
     else
       authentication_error
     end
+  end
 
-    # randers 401 error
-    def authentication_error
-      # invalid user token
-      render json: {error: t('unauthorized')}, status: 401
-    end
+  # randers 401 error
+  def authentication_error
+    # invalid user token
+    render json: { error: t('unauthorized') }, status: 401
   end
 end
